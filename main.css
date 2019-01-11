@@ -1,0 +1,12 @@
+.world {
+  width: 960px;
+  height: 650px;
+  margin: 0 auto;
+  border: 2px solid black;
+  position: relative;
+}
+
+.paddle {
+  background-color: black;
+  position: absolute;
+}
