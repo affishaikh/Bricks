@@ -10,11 +10,17 @@ const drawPaddle = function(paddle) {
   setPaddleAttributes(paddleDiv, paddle);
 };
 
+const shouldMoveRight = (event, paddle) =>
+  event.key === 'ArrowRight' && isWithinRightBoundary(paddle);
+
+const shouldMoveLeft = (event, paddle) =>
+  event.key === 'ArrowLeft' && isWithinLeftBoundary(paddle);
+
 const handleKeyEvents = function(paddle, event) {
-  if (event.key === 'ArrowRight') {
+  if (shouldMoveRight(event, paddle)) {
     paddle.moveRight();
   }
-  if (event.key === 'ArrowLeft') {
+  if (shouldMoveLeft(event, paddle)) {
     paddle.moveLeft();
   }
   drawPaddle(paddle);
