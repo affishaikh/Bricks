@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Mocha Tests</title>
+    <link
+      href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="https://www.chaijs.com/chai.js"></script>
+    <script src="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js"></script>
+    <script>
+      mocha.setup('bdd');
+    </script>
+    <script src="/src/bricks.js"></script>
+    <script src="/test/bricksTest.js"></script>
+    <script>
+      mocha.checkLeaks();
+      mocha.run();
+    </script>
+  </body>
+</html>

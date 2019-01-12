@@ -1,25 +1,3 @@
-const UNIT = 'px';
-const ARROW_RIGHT = 'ArrowRight';
-const ARROW_LEFT = 'ArrowLeft';
-const SPEED = 50;
-
-class Paddle {
-  constructor(width, height, left, bottom) {
-    this.width = width;
-    this.height = height;
-    this.left = left;
-    this.bottom = bottom;
-  }
-
-  moveRight() {
-    this.left = this.left + SPEED;
-  }
-
-  moveLeft() {
-    this.left = this.left - SPEED;
-  }
-}
-
 const setPaddleAttributes = function(paddleDiv, paddle) {
   paddleDiv.style.width = paddle.width + UNIT;
   paddleDiv.style.height = paddle.height + UNIT;
