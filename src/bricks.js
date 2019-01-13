@@ -35,6 +35,24 @@ class Ball {
     this.top = this.top + this.topVelocity;
     this.left = this.left + this.leftVelocity;
   }
+
+  didCollideWithPaddle(paddle) {
+    return (
+      this.top === 590 &&
+      this.left >= paddle.left &&
+      this.left <= paddle.left + 100
+    );
+  }
+
+  negateTopVelocity() {
+    this.topVelocity = -this.topVelocity
+  }
+
+  handleCollisions(paddle) {
+    if (this.didCollideWithPaddle(paddle)) {
+      this.negateTopVelocity();
+    }
+  }
 }
 
 class World {

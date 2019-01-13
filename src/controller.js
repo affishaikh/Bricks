@@ -83,11 +83,12 @@ const drawBall = function(document, ball) {
   setBallAttributes(ballDiv, ball);
 };
 
-const moveBall = function(document, ball) {
+const moveBall = function(document, ball, paddle) {
   setInterval(function() {
     ball.move();
     drawBall(document, ball);
-  }, 100);
+    ball.handleCollisions(paddle);
+  }, 10);
 };
 
 const initialize = function() {
@@ -97,7 +98,7 @@ const initialize = function() {
   insertPaddle(document, paddle);
   const ball = new Ball(10, 20, 20, 5, 5);
   insertBall(document, ball);
-  moveBall(document, ball);
+  moveBall(document, ball, paddle);
 };
 
 window.onload = initialize;
