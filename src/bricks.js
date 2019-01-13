@@ -62,7 +62,7 @@ class Ball {
 
   handleCollisions(paddle) {
     if (this.didCollideWithPaddle(paddle)) {
-      this.negateTopVelocity();
+       this.negateTopVelocity();
     }
     if (this.didCollideWithWalls()) {
       this.negateTopVelocity();
