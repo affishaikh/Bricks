@@ -36,21 +36,39 @@ class Ball {
     this.left = this.left + this.leftVelocity;
   }
 
+  negateTopVelocity() {
+    this.topVelocity = -this.topVelocity;
+  }
+
+  negateLeftVelocity() {
+    this.leftVelocity = -this.leftVelocity;
+  }
+
   didCollideWithPaddle(paddle) {
     return (
       this.top === 590 &&
       this.left >= paddle.left &&
-      this.left <= paddle.left + 100
+      this.left <= paddle.left + paddle.width
     );
   }
 
-  negateTopVelocity() {
-    this.topVelocity = -this.topVelocity
+  didCollideWithWalls() {
+    return this.top === 0 || this.top === 630;
+  }
+
+  didCollideWithSideWalls() {
+    return this.left === 0 || this.left === 940;
   }
 
   handleCollisions(paddle) {
     if (this.didCollideWithPaddle(paddle)) {
       this.negateTopVelocity();
+    }
+    if (this.didCollideWithWalls()) {
+      this.negateTopVelocity();
+    }
+    if (this.didCollideWithSideWalls()) {
+      this.negateLeftVelocity();
     }
   }
 }
