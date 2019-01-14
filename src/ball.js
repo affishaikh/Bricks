@@ -23,32 +23,4 @@ class Ball {
   getRadius() {
     return this.radius;
   }
-
-  negateTopVelocity() {
-    this.deltaTop = -this.deltaTop;
-  }
-
-  negateLeftVelocity() {
-    this.deltaLeft = -this.deltaLeft;
-  }
-
-  didCollideWithWalls() {
-    return this.top === 0 || this.top === 630;
-  }
-
-  didCollideWithSideWalls() {
-    return this.left === 0 || this.left === 940;
-  }
-
-  handleCollisions(paddle) {
-    if (this.didCollideWithPaddle(paddle)) {
-      this.negateTopVelocity();
-    }
-    if (this.didCollideWithWalls()) {
-      this.negateTopVelocity();
-    }
-    if (this.didCollideWithSideWalls()) {
-      this.negateLeftVelocity();
-    }
-  }
 }

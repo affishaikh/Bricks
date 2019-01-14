@@ -31,12 +31,16 @@ class Paddle {
     this.left = this.left - this.speed;
   }
 
-//   didBallCollide(positionOfBall, radiusOfBall) {
-//     // Take this return statement in its separate function
-//     return (
-//       this.position.top === positionOfBall.top + radiusOfBall * 2 &&
-//       positionOfBall.left <= this.left &&
-//       positionOfBall.left >= this.left + this.width
-//     );
-//   }
+  didBallCollide(ballTop, ballLeft, radiusOfBall) {
+    // Take this return statement in its separate function
+    return (
+      this.top === ballTop + radiusOfBall * 2 &&
+      ballLeft >= this.left &&
+      ballLeft <= this.left + this.width
+    );
+  }
+
+  negateDeltaTopOfBall(deltaTop) {
+    return -deltaTop;
+  }
 }

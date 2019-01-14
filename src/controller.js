@@ -55,12 +55,12 @@ const shouldMoveLeft = (game, event) =>
   event.key === 'ArrowLeft' && game.canPaddleMoveLeft();
 
 const handleKeyEvents = function(game, event) {
-   if (shouldMoveRight(game, event)) {
-     game.movePaddleRight();
-   }
-   if (shouldMoveLeft(game, event)) {
-     game.movePaddleLeft();
-   }
+  if (shouldMoveRight(game, event)) {
+    game.movePaddleRight();
+  }
+  if (shouldMoveLeft(game, event)) {
+    game.movePaddleLeft();
+  }
   drawPaddle(document, game.getPaddle());
 };
 
@@ -84,8 +84,8 @@ const drawBall = function(document, game) {
 const moveBall = function(document, game) {
   setInterval(function() {
     game.moveBall();
+    game.handleCollisions();
     drawBall(document, game);
-    // game.handleCollisions();
   }, 10);
 };
 
@@ -107,8 +107,3 @@ const initialize = function() {
 };
 
 window.onload = initialize;
-
-// Not sure about why to use this function
-// const createPaddle = function(width, height, top, left) {
-//   const paddle = new Paddle(width, heigh, top, left);
-// }

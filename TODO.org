@@ -1,4 +1,4 @@
-* TODO Make a game class. Insert all required objects into game class.
+* DONE Make a game class. Insert all required objects into game class.
 * DONE  Remove position from the paddle. Not a good time to introduce new feature. Introduce it when it is easy to make changes.
 * DONE Move the paddle.
     * Handle moveRight and moveLeft.
@@ -7,4 +7,7 @@
 * DONE Move the ball
     * Remove the position attribute from ball class.
     * Access the attributes of ball class using methods.
-* TODO Handle collision of ball with paddle.
+* DONE Handle collision of ball with paddle.
+* DONE Handle collisions of ball with boundaries. Handle it in such a way that changing it should be easier.
+* TODO Having a velocity object will make changing the velocity more understandable. And it will make easier to change the velocity according to which side of the paddle, ball it collides.
+* TODO Implement a better logic for checking the collisions.

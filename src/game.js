@@ -22,7 +22,9 @@ class Game {
   }
 
   canPaddleMoveRight() {
-    return this.world.getWidth() > this.paddle.getLeft() + this.paddle.getWidth();
+    return (
+      this.world.getWidth() > this.paddle.getLeft() + this.paddle.getWidth()
+    );
   }
 
   canPaddleMoveLeft() {
@@ -37,7 +39,39 @@ class Game {
     this.paddle.moveLeft();
   }
 
-  // handleCollisions() { // This is ugly. Refactor it.
-  //   console.log(this.paddle.didBallCollide(this.ball.position, this.ball.radius));
-  // }
+  didBallCollideWithPaddle() {
+    return this.paddle.didBallCollide(
+      this.ball.getTop(),
+      this.ball.getLeft(),
+      this.ball.getRadius()
+    );
+  }
+
+  didBallCollideWithHorizontalBoundary() {
+    return this.world.didBallCollideWithHorizontalBoundary(
+      this.ball.getTop(),
+      this.ball.getRadius()
+    );
+  }
+
+  didBallCollideWithVerticalBoundary() {
+    return this.world.didBallCollideWithVerticalBoundary(
+      this.ball.getLeft(),
+      this.ball.getRadius()
+    );
+  }
+
+  handleCollisions() {
+    if (this.didBallCollideWithPaddle()) {
+      this.ball.deltaTop = this.paddle.negateDeltaTopOfBall(this.ball.deltaTop);
+    }
+    if (this.didBallCollideWithHorizontalBoundary()) {
+      this.ball.deltaTop = this.world.negateDeltaTopOfBall(this.ball.deltaTop);
+    }
+    if (this.didBallCollideWithVerticalBoundary()) {
+      this.ball.deltaLeft = this.world.negateDeltaLeftOfBall(
+        this.ball.deltaLeft
+      );
+    }
+  }
 }
