@@ -1,15 +1,9 @@
-const UNIT = 'px';
-const RIGHT_BORDER = 860;
-const LEFT_BORDER = 0;
-const ARROW_RIGHT = 'ArrowRight';
-const ARROW_LEFT = 'ArrowLeft';
-
 class Paddle {
-  constructor(width, height, left, bottom, speed = 10) {
+  constructor(width, height, left, top, speed = 10) {
     this.width = width;
     this.height = height;
     this.left = left;
-    this.bottom = bottom;
+    this.top = top;
     this.speed = speed;
   }
 
@@ -23,30 +17,30 @@ class Paddle {
 }
 
 class Ball {
-  constructor(radius, top, left, topVelocity, leftVelocity) {
+  constructor(radius, top, left, deltaTop, deltaLeft) {
     this.radius = radius;
     this.top = top;
     this.left = left;
-    this.topVelocity = topVelocity;
-    this.leftVelocity = leftVelocity;
+    this.deltaTop = deltaTop;
+    this.deltaLeft = deltaLeft;
   }
 
   move() {
-    this.top = this.top + this.topVelocity;
-    this.left = this.left + this.leftVelocity;
+    this.top = this.top + this.deltaTop;
+    this.left = this.left + this.deltaLeft;
   }
 
   negateTopVelocity() {
-    this.topVelocity = -this.topVelocity;
+    this.deltaTop = -this.deltaTop;
   }
 
   negateLeftVelocity() {
-    this.leftVelocity = -this.leftVelocity;
+    this.deltaLeft = -this.deltaLeft;
   }
 
   didCollideWithPaddle(paddle) {
     return (
-      this.top === 590 &&
+      this.top === paddle.top - paddle.height &&
       this.left >= paddle.left &&
       this.left <= paddle.left + paddle.width
     );
@@ -62,7 +56,7 @@ class Ball {
 
   handleCollisions(paddle) {
     if (this.didCollideWithPaddle(paddle)) {
-       this.negateTopVelocity();
+      this.negateTopVelocity();
     }
     if (this.didCollideWithWalls()) {
       this.negateTopVelocity();
@@ -77,6 +71,23 @@ class World {
   constructor(width, height) {
     this.width = width;
     this.height = height;
+  }
+}
+
+class Game {
+  constructor(world, paddle, ball) {
+    this.world = world;
+    this.paddle = paddle;
+    this.ball = ball;
+  }
+  getWorld() {
+    return this.world;
+  }
+  getPaddle() {
+    return this.paddle;
+  }
+  getBall() {
+    return this.ball;
   }
 }
 

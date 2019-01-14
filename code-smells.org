@@ -1,0 +1,17 @@
+Bricks.js
+
+* DONE All constants can be in a separate file.
+
+* DONE Line Number---> 12   Paddle can be assigned a top attribute instead of bottom which will make it easier to test the collision and also consistency will be obtained.
+
+* DONE Line Number---> 26   The names topVelocity and leftVelocity does not make sense, as a object can have only one velocity.
+
+* TODO Methods of handling collision should be in obstacles instead of ball. It will make changing behaviour easy. Adding different behaviour on collisiion with different obstacle will be easy.
+
+* TODO Do not call the paddle.moveRight or moveLeft method in controller. Give this a work to game and call game.movePaddle in controller.
+
+* TODO Class World does not seem to be needed, because it does not have any behavior.
+
+* TODO Magic numbers are there on line numbers : 49, 56, 60.
+
+* TODO addEventListeners should be called from initialize function. If we call it from the paddle it becomes hard when we want to add more listeners.

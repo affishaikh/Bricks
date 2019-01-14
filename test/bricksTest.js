@@ -30,7 +30,7 @@ describe('ball.move', function() {
 describe('ball.didCollideWithPaddle', function() {
   it('should return true when ball collides paddle', function() {
     const ball = new Ball(10, 590, 430, 10, 10);
-    const paddle = new Paddle(100, 20, 430, 20, 10);
+    const paddle = new Paddle(100, 20, 430, 610 , 10);
     const actualOutput = ball.didCollideWithPaddle(paddle);
     assert.equal(actualOutput, true);
   });

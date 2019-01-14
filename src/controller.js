@@ -2,7 +2,7 @@ const setPaddleAttributes = function(paddleDiv, paddle) {
   paddleDiv.style.width = paddle.width + UNIT;
   paddleDiv.style.height = paddle.height + UNIT;
   paddleDiv.style.left = paddle.left + UNIT;
-  paddleDiv.style.bottom = paddle.bottom + UNIT;
+  paddleDiv.style.top = paddle.top + UNIT;
 };
 
 const drawPaddle = function(paddle) {
@@ -91,14 +91,24 @@ const moveBall = function(document, ball, paddle) {
   }, 10);
 };
 
+const createView = function(game) {
+  insertWorld(document, game.getWorld());
+  insertPaddle(document, game.getPaddle());
+  insertBall(document, game.getBall());
+};
+
 const initialize = function() {
   const world = new World(960, 650);
-  insertWorld(document, world);
-  const paddle = new Paddle(100, 20, 430, 20);
-  insertPaddle(document, paddle);
+  const paddle = new Paddle(100, 20, 430, 610);
   const ball = new Ball(10, 20, 20, 5, 5);
-  insertBall(document, ball);
+  const game = new Game(world, paddle, ball);
+  createView(game);
   moveBall(document, ball, paddle);
 };
 
 window.onload = initialize;
+
+// Not sure about why to use this function
+// const createPaddle = function(width, height, top, left) {
+//   const paddle = new Paddle(width, heigh, top, left);
+// }
