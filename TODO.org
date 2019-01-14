@@ -4,5 +4,7 @@
     * Handle moveRight and moveLeft.
     * Handle the boundaries.
 * DONE World should be used in canPaddleMoveRight and canPaddleMoveLeft instead of RIGHT_BORDER and LEFT_BORDER. That gives the dependancy to world and it will work it the size of world changes.
-* TODO Move the ball
+* DONE Move the ball
+    * Remove the position attribute from ball class.
+    * Access the attributes of ball class using methods.
 * TODO Handle collision of ball with paddle.

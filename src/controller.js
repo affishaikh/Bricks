@@ -27,12 +27,12 @@ const insertPaddle = function(document, paddle) {
 };
 
 const setBallAttributes = function(ballDiv, ball) {
-  const ballDiameter = ball.radius * 2;
+  const ballDiameter = ball.getRadius() * 2;
   ballDiv.style.width = ballDiameter + UNIT;
   ballDiv.style.height = ballDiameter + UNIT;
-  ballDiv.style.top = ball.position.top + UNIT;
-  ballDiv.style.left = ball.position.left + UNIT;
-  ballDiv.style.borderRadius = ball.radius + UNIT;
+  ballDiv.style.top = ball.getTop() + UNIT;
+  ballDiv.style.left = ball.getLeft() + UNIT;
+  ballDiv.style.borderRadius = ball.getRadius() + UNIT;
 };
 
 const insertBall = function(document, ball) {
@@ -85,7 +85,7 @@ const moveBall = function(document, game) {
   setInterval(function() {
     game.moveBall();
     drawBall(document, game);
-    game.handleCollisions();
+    // game.handleCollisions();
   }, 10);
 };
 
@@ -103,7 +103,7 @@ const initialize = function() {
   createView(game);
   setFocus(document);
   addEventListener(document, game);
-  //moveBall(document, game);
+  moveBall(document, game);
 };
 
 window.onload = initialize;

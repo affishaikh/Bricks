@@ -1,14 +1,27 @@
 class Ball {
   constructor(radius, top, left, deltaTop, deltaLeft) {
     this.radius = radius;
-    this.position = { top, left };
+    this.top = top;
+    this.left = left;
     this.deltaTop = deltaTop;
     this.deltaLeft = deltaLeft;
   }
 
   move() {
-    this.position.top = this.position.top + this.deltaTop;
-    this.position.left = this.position.left + this.deltaLeft;
+    this.top = this.top + this.deltaTop;
+    this.left = this.left + this.deltaLeft;
+  }
+
+  getTop() {
+    return this.top;
+  }
+
+  getLeft() {
+    return this.left;
+  }
+
+  getRadius() {
+    return this.radius;
   }
 
   negateTopVelocity() {
