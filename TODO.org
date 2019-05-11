@@ -9,5 +9,6 @@
     * Access the attributes of ball class using methods.
 * DONE Handle collision of ball with paddle.
 * DONE Handle collisions of ball with boundaries. Handle it in such a way that changing it should be easier.
-* TODO Having a velocity object will make changing the velocity more understandable. And it will make easier to change the velocity according to which side of the paddle, ball it collides.
+* UNDER WORK Having a velocity object will make changing the velocity more understandable. And it will make easier to change the velocity according to which side of the paddle, ball it collides.
 * TODO Implement a better logic for checking the collisions.
+* TODO Add tests for testing collision of ball with boundaries.
